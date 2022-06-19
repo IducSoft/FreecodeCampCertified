@@ -1,0 +1,12 @@
+{
+  "name": "freecodecamp-certified-javascrip",
+  "version": "1.0.0",
+  "description": "Aqui están los algoritmos para obtener el certificado de freecodecamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["Freecodecamp", "javascript", "certified"],
+  "author": "Isaac Urdaneta",
+  "license": "ISC"
+}
