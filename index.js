@@ -625,3 +625,40 @@ function hourglassSum(arr) {
 // Continuamos con hackerRank
 
 
+function rotateLeft(d, arr) {
+    // Write your code here
+
+    function determinateIndex(index, long, rot){
+
+        let nextIndex = index;
+
+        for (let i = 0; i < rot; i++) {
+            nextIndex --;
+            if(nextIndex < 0){
+
+                nextIndex = long;
+            }
+            
+        }
+
+
+        return nextIndex;
+    }
+
+
+    let arrRotated = new Array(arr.length),
+        lastIndex = (arr.length - 1);
+
+    for (let index = 0; index < arr.length; index++) {
+        
+        let elementToRotate = arr[index]
+        arrRotated[determinateIndex(index, lastIndex, d)] = elementToRotate;
+        
+    }
+
+    return arrRotated;
+    
+    
+}
+
+console.log(rotateLeft(10, [41, 73, 89 ,7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51]))
