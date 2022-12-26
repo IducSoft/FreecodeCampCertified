@@ -627,21 +627,15 @@ function hourglassSum(arr) {
 
 function rotateLeft(d, arr) {
     // Write your code here
-
     function determinateIndex(index, long, rot){
-
         let nextIndex = index;
-
         for (let i = 0; i < rot; i++) {
             nextIndex --;
             if(nextIndex < 0){
-
                 nextIndex = long;
             }
             
         }
-
-
         return nextIndex;
     }
 
@@ -661,4 +655,75 @@ function rotateLeft(d, arr) {
     
 }
 
-console.log(rotateLeft(10, [41, 73, 89 ,7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51]))
+// console.log(rotateLeft(10, [41, 73, 89 ,7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51]))
+
+
+
+
+// function matchingStrings(stringList, queries) {
+//     // Write your code here
+//     let arrayResult = [];
+//     // un bucle for que recorra queries
+
+//     for (let index = 0; index < queries.length; index++) {
+//         const elementQueries = queries[index];
+//         let numeroVeces = 0;
+
+//         // Un bucle for que recorra stringList
+
+//         for (let j = 0; j < stringList.length; j++) {
+//             const elementStringList = stringList[j];
+
+//             if (elementQueries === elementStringList) {
+//                 numeroVeces++;
+//             }
+            
+//         }
+
+//         arrayResult.push(numeroVeces);
+        
+//     }
+
+//     return arrayResult;
+// }
+
+
+// console.log(matchingStrings(["aba","baba","aba","xzxb"], ["aba","xzxb","ab"]))
+
+
+// Vamos empezar con los test en jest
+
+
+
+function birthday(s, d, m) {
+    // Write your code here
+    // s es un arreglo, d es el día, m es el mes 
+
+    
+    // lo primero  es crear una variable donde vamos a retornar el numero de coincidencias
+
+    let numberCoincedence = 0, range = m - 1;
+
+    // Un bucle for externo
+
+    for (let index = 0; index < s.length; index++) {
+        // const element = s[index];
+
+        let numVerify = 0;
+
+        // Un bucle for interno
+        for (let j = index; j <= range; j++) {
+            numVerify += s[j];
+            
+        }
+
+        if(numVerify === d) numberCoincedence ++;
+        if(range === s.length - 1) break;
+        range ++;
+        
+    }
+
+    console.log(numberCoincedence)
+}
+
+birthday([1, 1, 1, 1, 1, 1], 3, 2)
