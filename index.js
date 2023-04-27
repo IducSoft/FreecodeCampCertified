@@ -726,4 +726,89 @@ function birthday(s, d, m) {
     console.log(numberCoincedence)
 }
 
-birthday([1, 1, 1, 1, 1, 1], 3, 2)
+//birthday([1, 1, 1, 1, 1, 1], 3, 2);
+
+function waiter(number, q){
+
+    //find a function that return in an array the first n primes numbers.
+    // Source: https://stackoverflow.com/a/45985898 .
+    /*
+    * Get the first n prime numbers
+    *
+    * @param n Number (integer)
+    * @return Array
+    *
+    */
+
+    function getNprimes(n){
+        /*
+        * @param n (integer)
+        * @return Boolean
+        *
+        */
+        function isPrime(n) {
+            if ( n < 2 ) {
+            return false
+            }
+            for ( let i = 2; i <= Math.sqrt(n); i++ ) {
+            if ( n % i === 0 ) {
+                return false;
+            } 
+            }
+            return true
+        }
+        const arr = [];
+        let i = 2
+        while (arr.length < n) {
+            if (isPrime(i)) {
+                arr.push(i)
+            }
+            i++
+        } 
+        return arr;
+        
+    
+    }
+    
+    //aqui declaramos la variable que contiene el arreglo de q numeros primos a tratar.
+    let numerosPrimos = getNprimes(q);
+    //declaramos una pila donde se va retornar los elementos ordedanos.
+    let answer = []; let bp = []; let ap = []; let arrChange = [...number];
+    //un bucle forEach que recorra los q numeros primos
+    numerosPrimos.forEach((e)=>{
+        bp = [];
+        ap = [];
+        for (let index = (arrChange.length - 1); index >= 0; index--) {
+            const element = arrChange[index];
+            //console.log(element)
+            //validaciones
+            if(arrChange[index] % e === 0){
+                bp.push(arrChange[index]);
+                //empujamos el elementos si es divisible por el numero primo del momento.
+            }else{
+                ap.push(arrChange[index]);
+                //empujamos en el caso que no sea divisible
+            }
+        }
+        //console.log(ap, bp, answer)
+        //primero apilamos de arriba hacia abajo
+        bp.reverse();
+        bp.forEach((e)=>{
+            answer.push(e); 
+        })
+        arrChange = [...ap];
+        
+    })
+    ap.reverse();
+    answer.push(...ap)
+    //console.log(answer)
+    return answer;
+
+}
+
+
+waiter([80, 37, 86, 79 ,8, 39, 43, 41, 15, 33, 30, 15, 45, 55, 61, 74, 49, 49, 20, 66, 77, 19, 85, 44, 81, 82, 27, 5, 36, 83, 91, 45, 39, 44, 19, 44, 71, 49, 8, 66, 81, 40, 29, 60, 35, 31, 44], 21)
+
+
+
+
